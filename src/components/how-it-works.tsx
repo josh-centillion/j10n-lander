@@ -23,8 +23,8 @@ const steps = [
   },
   {
     num: '05',
-    title: 'Alert Delivered',
-    body: 'A recommendation is delivered. Structured. Auditable. With the reasoning chain that produced it.',
+    title: 'Execution or Alert',
+    body: 'When confidence is high, the system executes automatically. When conditions require judgement, a structured alert is delivered with the full reasoning chain. Either way — the output is auditable, and the decision logic is transparent.',
   },
 ]
 

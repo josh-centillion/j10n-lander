@@ -16,9 +16,9 @@ const terminalLines = [
   '│  ──────────────────────────────────────────────────────   │',
   '│                                                            │',
   '│  alert: opportunity detected                               │',
-  '│  confidence: 0.91                                          │',
-  '│  recommendation: generated                                 │',
-  '│  → delivered                                               │',
+  '│  confidence: 0.94                                          │',
+  '│  action: auto-execute                                      │',
+  '│  → executed                                                │',
   '│                                                            │',
   '└────────────────────────────────────────────────────────── ┘',
 ]
