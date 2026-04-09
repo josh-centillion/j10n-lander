@@ -12,15 +12,15 @@ export const Hero: FC = () => {
           <p class="hero-eyebrow" data-reveal>Fine Wine Intelligence</p>
 
           <h1 class="hero-h1">
-            <span class="word">An edge exists</span>{' '}
-            <span class="word">in every market.</span>{' '}
-            <span class="word">Ours is invisible.</span>
+            <span class="word">Finite by nature.</span>{' '}
+            <span class="word">Predicted by design.</span>
           </h1>
 
-          <p class="hero-body">
-            J10N applies multi-agent AI to a $74 billion market
-            that has never had a tool built for it.
-          </p>
+          <h2 class="hero-h2">
+            AI-powered intelligence for the $74B fine wine market.
+            Autonomous agents that monitor, evaluate, and execute
+            across every major trading venue — continuously.
+          </h2>
 
           <div class="hero-actions">
             <a href="#" data-open-signup class="btn btn-white">

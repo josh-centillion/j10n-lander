@@ -58,11 +58,12 @@
   margin-bottom: var(--space-6);
 }
 
-.hero-body {
-  font-size: clamp(16px, 2vw, 18px);
+.hero-h2 {
+  font-size: clamp(17px, 2.2vw, 20px);
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.60);
   max-width: 520px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .hero-actions {
