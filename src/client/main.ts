@@ -1,6 +1,20 @@
 // Client entry — GSAP init, all animation setup
 // GSAP + ScrollTrigger loaded via CDN script tags (not bundled)
 
+// CSS imports — Vite bundles these into static/client.css
+import '../styles/tokens.css'
+import '../styles/base.css'
+import '../styles/sections.css'
+import '../styles/buttons.css'
+import '../styles/cards.css'
+import '../styles/nav.css'
+import '../styles/hero.css'
+import '../styles/terminal.css'
+import '../styles/timeline.css'
+import '../styles/table.css'
+import '../styles/faq.css'
+import '../styles/responsive.css'
+
 import { initNav } from './nav'
 import { initHero } from './animations/hero'
 import { initScrollReveals } from './animations/scroll'

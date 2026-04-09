@@ -22,8 +22,8 @@ export const renderer = jsxRenderer(({ children, title }) => {
         <link rel="icon" type="image/png" href="/static/images/favicon-32x32.png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" sizes="180x180" />
 
-        {/* CSS — inlined for LCP */}
-        <link rel="stylesheet" href="/static/styles.css" />
+        {/* CSS — bundled by Vite from client entry */}
+        <link rel="stylesheet" href="/static/style.css" />
 
         {/* GSAP via CDN — defer, not bundled */}
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

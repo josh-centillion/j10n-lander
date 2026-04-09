@@ -9,10 +9,14 @@ export default defineConfig(({ mode }) => {
       build: {
         rollupOptions: {
           input: './src/client/main.ts',
-          output: { entryFileNames: 'static/client.js' }
+          output: {
+            entryFileNames: 'static/client.js',
+            assetFileNames: 'static/[name][extname]'
+          }
         },
         outDir: './dist',
-        emptyOutDir: false
+        emptyOutDir: false,
+        cssCodeSplit: false
       }
     }
   }
