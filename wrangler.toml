@@ -1,5 +1,5 @@
 name = "j10n-lander"
-account_id = "595c99e5b4fd33ef667a8ac2ea290631"
+# account_id set via CLOUDFLARE_ACCOUNT_ID env var (Pages doesn't support it in config)
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
 
