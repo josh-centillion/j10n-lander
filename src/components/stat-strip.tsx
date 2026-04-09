@@ -2,9 +2,9 @@ import type { FC } from 'hono/jsx'
 
 const stats = [
   { value: '74', prefix: '$', suffix: 'B', label: 'Global fine wine market, 2026' },
-  { value: '3', suffix: ' agents', label: 'Running concurrently. Always on.' },
-  { text: 'Real-time', label: 'Cross-platform price monitoring' },
-  { text: 'GPU-native', label: 'LLM inference on dedicated hardware' },
+  { text: 'Always on', label: 'Continuous autonomous operation' },
+  { text: 'Real-time', label: 'Cross-venue price monitoring' },
+  { text: 'ML-native', label: 'Backtested and self-improving' },
 ]
 
 export const StatStrip: FC = () => {
