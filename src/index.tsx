@@ -49,34 +49,50 @@ app.get('/', (c) => {
 })
 
 app.post('/api/signup', async (c) => {
+  // Origin check — reject cross-origin requests
+  const origin = c.req.header('origin') || ''
+  const host = c.req.header('host') || ''
+  if (origin && !origin.includes(host) && !origin.includes('j10n')) {
+    return c.json({ ok: false, error: 'Invalid request.' }, 403)
+  }
+
   const body = await c.req.parseBody()
-  const name = (body.name as string || '').trim()
-  const email = (body.email as string || '').trim()
+  const name = (body.name as string || '').trim().slice(0, 200)
+  const email = (body.email as string || '').trim().slice(0, 320)
   const token = body['cf-turnstile-response'] as string || ''
 
+  // Validate inputs
   if (!name || !email) {
     return c.json({ ok: false, error: 'Name and email are required.' }, 400)
   }
 
-  // Verify Turnstile token
-  const secretKey = c.env.TURNSTILE_SECRET_KEY
-  if (secretKey) {
-    const formData = new FormData()
-    formData.append('secret', secretKey)
-    formData.append('response', token)
-
-    const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      body: formData,
-    })
-    const outcome = await result.json() as { success: boolean }
-
-    if (!outcome.success) {
-      return c.json({ ok: false, error: 'Verification failed. Please try again.' }, 403)
-    }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(email)) {
+    return c.json({ ok: false, error: 'Please enter a valid email address.' }, 400)
   }
 
-  // Insert into D1
+  // Turnstile verification — mandatory in production
+  const secretKey = c.env.TURNSTILE_SECRET_KEY
+  if (!secretKey) {
+    return c.json({ ok: false, error: 'Service temporarily unavailable.' }, 503)
+  }
+
+  const formData = new FormData()
+  formData.append('secret', secretKey)
+  formData.append('response', token)
+  formData.append('remoteip', c.req.header('cf-connecting-ip') || '')
+
+  const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body: formData,
+  })
+  const outcome = await result.json() as { success: boolean }
+
+  if (!outcome.success) {
+    return c.json({ ok: false, error: 'Verification failed. Please try again.' }, 403)
+  }
+
+  // Rate limit — 1 signup per email (D1 UNIQUE constraint handles this)
   try {
     await c.env.DB.prepare(
       'INSERT INTO signups (name, email) VALUES (?, ?)'
