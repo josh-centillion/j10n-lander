@@ -1,23 +1,23 @@
 import type { FC } from 'hono/jsx'
 
-const agents = [
+const capabilities = [
   {
-    num: '01',
-    name: 'Pricing Agent',
-    body: 'Monitors data across platforms continuously. Calculates normalised, cost-adjusted differentials for every platform pair on every cycle. Surfaces candidates above threshold.',
-    tools: ['price_lookup', 'normalise', 'fx_rates'],
+    label: 'MARKET AGENTS',
+    name: 'Price Discovery & Monitoring',
+    body: 'A swarm of specialised agents monitors every major venue type continuously. Each agent normalises pricing, calculates cost-adjusted differentials, and surfaces candidates that cross scoring thresholds — across currencies, fee structures, and settlement models.',
+    tools: ['price_feed', 'fx_normalise', 'spread_calc', 'velocity_est'],
   },
   {
-    num: '02',
-    name: 'Arbitrage Agent',
-    body: 'Receives candidates from the Pricing Agent. Evaluates each against platform exit velocity, timing risk, and cost models. Returns a confidence-scored recommendation.',
-    tools: ['velocity_est', 'cost_model', 'risk_score'],
+    label: 'ML ENGINE',
+    name: 'Prediction & Backtesting',
+    body: 'Machine learning models trained on historical outcomes score every opportunity against a multi-factor model. Confidence, timing, and risk are continuously backtested against real market data. Models retrain autonomously — improving with every cycle.',
+    tools: ['backtest', 'score_model', 'retrain', 'confidence_est'],
   },
   {
-    num: '03',
-    name: 'Report Agent',
-    body: 'Queries the knowledge graph. Contextualises the recommendation against historical data, producer intelligence, and market conditions. Generates a structured output with full reasoning chain.',
-    tools: ['knowledge_graph', 'vintage_data', 'report_gen'],
+    label: 'EXECUTION LAYER',
+    name: 'Decision & Execution',
+    body: 'When confidence exceeds threshold, the system executes automatically. When conditions require judgement, a structured recommendation is delivered with the full reasoning chain — probability, timing, risk factors, and the knowledge graph context behind the decision.',
+    tools: ['auto_execute', 'risk_gate', 'report_gen', 'knowledge_graph'],
   },
 ]
 
@@ -31,25 +31,27 @@ export const Agents: FC = () => {
         <div style="text-align: center; margin-bottom: var(--space-12);">
           <p class="eyebrow" data-reveal>Intelligence</p>
           <h2 class="section-h2" data-reveal>
-            Three agents.<br />One knowledge graph.
+            Agent swarm.<br />ML backbone.<br />One knowledge graph.
           </h2>
           <p class="section-body" style="margin: 0 auto; color: rgba(255,255,255,0.55);" data-reveal>
-            J10N's intelligence is built on a forked multi-agent framework
-            purpose-adapted for the wine market. Each agent has a defined role.
-            All three share a single GraphRAG knowledge graph — encoding
-            producer lineage, vintage history, critic scores, and pricing
-            intelligence going back decades.
+            J10N deploys a multi-agent system built on a forked simulation
+            framework purpose-adapted for the wine market. Agents operate
+            in parallel — monitoring, scoring, and executing — while sharing
+            a single GraphRAG knowledge graph that encodes producer lineage,
+            vintage history, critic scores, and pricing intelligence going
+            back decades. Machine learning models run continuously, backtesting
+            every decision against historical outcomes and retraining autonomously.
           </p>
         </div>
 
         <div class="agents-grid" data-stagger>
-          {agents.map((agent) => (
+          {capabilities.map((cap) => (
             <div class="glass-card" data-stagger-child>
-              <p class="agent-label">AGENT {agent.num}</p>
-              <h3 class="card-h3" style="color: var(--color-text-inverse);">{agent.name}</h3>
-              <p class="card-body">{agent.body}</p>
+              <p class="agent-label">{cap.label}</p>
+              <h3 class="card-h3" style="color: var(--color-text-inverse);">{cap.name}</h3>
+              <p class="card-body">{cap.body}</p>
               <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-4);">
-                {agent.tools.map((tool) => (
+                {cap.tools.map((tool) => (
                   <span class="tool-tag">{tool}</span>
                 ))}
               </div>
