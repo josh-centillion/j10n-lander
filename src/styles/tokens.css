@@ -1,0 +1,70 @@
+/* J10N Design Tokens — from brand-guidelines.html */
+
+:root {
+  /* Color primitives */
+  --color-ivory:          #FAF8F5;
+  --color-white:          #FFFFFF;
+  --color-onyx:           #1C1C1E;
+  --color-mahogany:       #3D2518;
+  --color-mahogany-mid:   #5A3828;
+  --color-burgundy:       #6B1E2E;
+  --color-burgundy-dark:  #4A1420;
+  --color-burgundy-light: #8B3448;
+  --color-gray-900:       #1C1C1E;
+  --color-gray-700:       #3A3A3C;
+  --color-gray-500:       #636366;
+  --color-gray-300:       #C7C7CC;
+  --color-gray-200:       #E5E5EA;
+  --color-gray-100:       #F2F2F7;
+
+  /* Semantic color roles */
+  --color-bg-page:        #FAF8F5;
+  --color-bg-surface:     #FFFFFF;
+  --color-bg-inverse:     #1C1C1E;
+  --color-bg-brand:       #3D2518;
+  --color-text-primary:   #1C1C1E;
+  --color-text-secondary: #636366;
+  --color-text-inverse:   #FFFFFF;
+  --color-text-brand:     #6B1E2E;
+  --color-border:         #E5E5EA;
+  --color-border-strong:  #1C1C1E;
+
+  /* Section-level semantic tokens (overridden by .section-dark) */
+  --section-bg:     var(--color-bg-page);
+  --section-text:   var(--color-text-primary);
+  --section-text-2: var(--color-text-secondary);
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+
+  /* Border radius */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(28,28,30,0.08);
+  --shadow-md: 0 4px 12px rgba(28,28,30,0.12);
+  --shadow-lg: 0 8px 24px rgba(28,28,30,0.16);
+
+  /* Spacing (4px base unit) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Breakpoints (reference only — used in media queries) */
+  --bp-sm:  640px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+}

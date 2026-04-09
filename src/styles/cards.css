@@ -1,0 +1,91 @@
+/* Surface cards (light backgrounds) */
+.surface-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.surface-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gray-300);
+  transform: translateY(-3px);
+}
+
+/* Stat cards — burgundy top rule */
+.stat-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  border-top: 3px solid var(--color-burgundy);
+}
+
+.stat-card-number {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.stat-card-label {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.stat-card-note {
+  font-size: 13px;
+  color: var(--color-gray-300);
+  margin-top: var(--space-2);
+}
+
+/* Glass cards (dark backgrounds) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(139, 52, 72, 0.35);
+  transform: translateY(-3px);
+}
+
+/* Card headings */
+.card-h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+
+.card-body {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.glass-card .card-body {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Responsive card padding */
+@media (max-width: 768px) {
+  .surface-card, .glass-card, .stat-card { padding: 24px; }
+}
+
+@media (max-width: 640px) {
+  .surface-card, .glass-card, .stat-card { padding: 20px; }
+}

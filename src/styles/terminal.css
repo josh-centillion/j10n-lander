@@ -1,0 +1,39 @@
+/* S4 — Terminal / Live Output Panel */
+
+.product-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.terminal-panel {
+  background: var(--color-mahogany);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--color-burgundy);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.terminal-output [data-text] {
+  visibility: hidden;
+  white-space: pre;
+}
+
+@media (max-width: 768px) {
+  .product-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .terminal-panel { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .terminal-panel { font-size: 12px; }
+}

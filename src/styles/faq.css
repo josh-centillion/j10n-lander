@@ -1,0 +1,78 @@
+/* S10 — FAQ Accordion */
+
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-onyx);
+  gap: 16px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-onyx);
+  transition: transform 0.25s ease;
+}
+
+.faq-icon::before {
+  width: 16px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 16px;
+}
+
+.faq-item.open .faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  font-size: 15px;
+  color: var(--color-gray-500);
+  line-height: 1.65;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 400px;
+  padding-bottom: 20px;
+}
