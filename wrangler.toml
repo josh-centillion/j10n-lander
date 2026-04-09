@@ -5,3 +5,10 @@ pages_build_output_dir = "dist"
 
 [vars]
 ENVIRONMENT = "production"
+TURNSTILE_SITE_KEY = ""
+TURNSTILE_SECRET_KEY = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "j10n-signups"
+database_id = "3b98802c-c0a1-4bab-adb0-061f4ecfe3fb"

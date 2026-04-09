@@ -16,8 +16,7 @@ export const Nav: FC = () => {
           <li><a href="#faq">FAQ</a></li>
         </ul>
 
-        <a href="mailto:josh.martin@centillion.ai?subject=J10N%20Early%20Access%20Request"
-           class="btn btn-primary nav-cta">
+        <a href="#" data-open-signup class="btn btn-primary nav-cta">
           Request Access
         </a>
 
@@ -32,8 +31,7 @@ export const Nav: FC = () => {
         <a href="#intelligence">Intelligence</a>
         <a href="#platforms">Platforms</a>
         <a href="#faq">FAQ</a>
-        <a href="mailto:josh.martin@centillion.ai?subject=J10N%20Early%20Access%20Request"
-           class="btn btn-primary">
+        <a href="#" data-open-signup class="btn btn-primary">
           Request Access &rarr;
         </a>
       </div>

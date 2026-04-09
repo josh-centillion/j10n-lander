@@ -18,12 +18,12 @@ const cards = [
     body: 'Three specialised agents coordinated by a forked multi-agent framework. Shared tool registry. Structured handoffs between pipeline stages.',
   },
   {
-    title: 'Vector-Powered Search',
-    body: 'pgvector enables semantic similarity search across the knowledge graph. Wine identity matching, producer relationship queries, and historical pattern retrieval run on vector embeddings.',
+    title: 'ML Backtesting Engine',
+    body: 'Every model decision is backtested against historical market outcomes. Scoring thresholds, timing models, and confidence weights are continuously validated and recalibrated against real data — not static rules.',
   },
   {
-    title: 'Continuous Operation',
-    body: 'The system is always on during market hours. Polling, scoring, evaluating, alerting. Not a batch process. Not a nightly job. A continuous intelligence loop.',
+    title: 'Autonomous Learning Loop',
+    body: 'The system improves without manual intervention. Execution outcomes feed back into the ML pipeline, refining agent behaviour, scoring accuracy, and risk calibration with every cycle. The longer it runs, the sharper it gets.',
   },
 ]
 

@@ -14,8 +14,10 @@ import '../styles/timeline.css'
 import '../styles/table.css'
 import '../styles/faq.css'
 import '../styles/responsive.css'
+import '../styles/modal.css'
 
 import { initNav } from './nav'
+import { initSignup } from './signup'
 import { initHero } from './animations/hero'
 import { initScrollReveals } from './animations/scroll'
 import { initCounters } from './animations/counter'
@@ -40,8 +42,9 @@ function waitForGSAP(): Promise<void> {
 }
 
 async function init() {
-  // Nav doesn't need GSAP
+  // Nav and signup don't need GSAP
   initNav()
+  initSignup()
 
   // Check reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

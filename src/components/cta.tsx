@@ -19,8 +19,7 @@ export const CTA: FC = () => {
           partners who understand what this market has been missing.
         </p>
 
-        <a href="mailto:josh.martin@centillion.ai?subject=J10N%20Early%20Access%20Request"
-           class="btn btn-white" data-reveal>
+        <a href="#" data-open-signup class="btn btn-white" data-reveal>
           Request Early Access &rarr;
         </a>
       </div>

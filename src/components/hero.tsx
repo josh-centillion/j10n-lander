@@ -22,8 +22,7 @@ export const Hero: FC = () => {
         </p>
 
         <div class="hero-actions">
-          <a href="mailto:josh.martin@centillion.ai?subject=J10N%20Early%20Access%20Request"
-             class="btn btn-white">
+          <a href="#" data-open-signup class="btn btn-white">
             Request Early Access &rarr;
           </a>
           <a href="#how-it-works" class="btn btn-ghost-light">

@@ -19,7 +19,7 @@ const steps = [
   {
     num: '04',
     title: 'Agent Evaluation',
-    body: 'A multi-agent AI system evaluates each scored opportunity. Agents query a GraphRAG knowledge graph and return a structured assessment \u2014 probability, timing, risk factors, and a recommendation with full reasoning.',
+    body: 'A multi-agent AI system evaluates each scored opportunity. Agents query a GraphRAG knowledge graph and return a structured assessment \u2014 probability, timing, risk factors, and a recommendation with full reasoning. Models are continuously backtested against historical outcomes and retrained to improve accuracy autonomously.',
   },
   {
     num: '05',

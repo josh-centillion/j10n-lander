@@ -13,12 +13,20 @@ import { Infrastructure } from './components/infrastructure'
 import { FAQ } from './components/faq'
 import { CTA } from './components/cta'
 import { Footer } from './components/footer'
+import { SignupModal } from './components/signup-modal'
 
-const app = new Hono()
+type Bindings = {
+  DB: D1Database
+  TURNSTILE_SITE_KEY: string
+  TURNSTILE_SECRET_KEY: string
+}
+
+const app = new Hono<{ Bindings: Bindings }>()
 
 app.use(renderer)
 
 app.get('/', (c) => {
+  const siteKey = c.env.TURNSTILE_SITE_KEY || '1x00000000000000000000AA'
   return c.render(
     <>
       <Nav />
@@ -34,9 +42,53 @@ app.get('/', (c) => {
       <FAQ />
       <CTA />
       <Footer />
+      <SignupModal turnstileSiteKey={siteKey} />
     </>,
     { title: 'J10N — Fine Wine Intelligence' }
   )
+})
+
+app.post('/api/signup', async (c) => {
+  const body = await c.req.parseBody()
+  const name = (body.name as string || '').trim()
+  const email = (body.email as string || '').trim()
+  const token = body['cf-turnstile-response'] as string || ''
+
+  if (!name || !email) {
+    return c.json({ ok: false, error: 'Name and email are required.' }, 400)
+  }
+
+  // Verify Turnstile token
+  const secretKey = c.env.TURNSTILE_SECRET_KEY
+  if (secretKey) {
+    const formData = new FormData()
+    formData.append('secret', secretKey)
+    formData.append('response', token)
+
+    const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: formData,
+    })
+    const outcome = await result.json() as { success: boolean }
+
+    if (!outcome.success) {
+      return c.json({ ok: false, error: 'Verification failed. Please try again.' }, 403)
+    }
+  }
+
+  // Insert into D1
+  try {
+    await c.env.DB.prepare(
+      'INSERT INTO signups (name, email) VALUES (?, ?)'
+    ).bind(name, email).run()
+  } catch (e: any) {
+    if (e.message?.includes('UNIQUE')) {
+      return c.json({ ok: false, error: 'This email is already on our list.' }, 409)
+    }
+    return c.json({ ok: false, error: 'Something went wrong. Please try again.' }, 500)
+  }
+
+  return c.json({ ok: true })
 })
 
 export default app

@@ -29,6 +29,9 @@ export const renderer = jsxRenderer(({ children, title }) => {
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
+        {/* Cloudflare Turnstile */}
+        <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js" async></script>
+
         {/* Client JS */}
         <script defer src="/static/client.js"></script>
       </head>
