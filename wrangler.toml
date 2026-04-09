@@ -1,4 +1,5 @@
 name = "j10n-lander"
+account_id = "595c99e5b4fd33ef667a8ac2ea290631"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
 
