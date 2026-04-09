@@ -39,16 +39,30 @@
   gap: 20px;
 }
 
-/* Agent tool tags */
+/* Agent tool tags — on dark backgrounds */
 .tool-tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--color-burgundy-light);
-  background: rgba(139, 52, 72, 0.15);
-  border: 1px solid rgba(139, 52, 72, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
   padding: 2px 8px;
+}
+
+/* Agent number label — prominent on dark */
+.agent-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-ivory);
+  background: var(--color-burgundy);
+  border-radius: var(--radius-sm);
+  padding: 3px 10px;
+  margin-bottom: var(--space-3);
 }
 
 /* Stat strip responsive */

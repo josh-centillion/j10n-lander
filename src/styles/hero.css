@@ -10,10 +10,34 @@
   padding: 0 48px;
 }
 
-.hero-content {
+.hero-split {
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero-content {
   max-width: 760px;
+}
+
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-height: 70vh;
+  width: auto;
+  max-width: 100%;
+  opacity: 0.85;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3));
 }
 
 .hero-eyebrow {
@@ -26,7 +50,7 @@
 }
 
 .hero-h1 {
-  font-size: clamp(36px, 9.5vw, 96px);
+  font-size: clamp(36px, 5.5vw, 80px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -98,10 +122,21 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .hero { padding: 0 32px; }
+  .hero-split { gap: 32px; }
 }
 
 @media (max-width: 768px) {
   .hero { padding: 0 24px; }
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-image {
+    order: -1;
+  }
+  .hero-image img {
+    max-height: 40vh;
+  }
 }
 
 @media (max-width: 640px) {
@@ -115,5 +150,8 @@
   .hero-actions .btn {
     width: 100%;
     justify-content: center;
+  }
+  .hero-image img {
+    max-height: 35vh;
   }
 }

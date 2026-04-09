@@ -45,7 +45,7 @@ export const Agents: FC = () => {
         <div class="agents-grid" data-stagger>
           {agents.map((agent) => (
             <div class="glass-card" data-stagger-child>
-              <p class="tool-tag" style="margin-bottom: var(--space-3);">AGENT {agent.num}</p>
+              <p class="agent-label">AGENT {agent.num}</p>
               <h3 class="card-h3" style="color: var(--color-text-inverse);">{agent.name}</h3>
               <p class="card-body">{agent.body}</p>
               <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-4);">
